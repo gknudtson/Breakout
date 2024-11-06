@@ -4,9 +4,8 @@ from src.breakout.breakout_config import (SCREEN_WIDTH, SCREEN_HEIGHT, PADDLE_HE
                                           PADDLE_SPEED, PADDLE_MOVE_LEFT, PADDLE_MOVE_RIGHT)
 
 
-
 class Paddle(pygame.sprite.Sprite):
-    def __init__(self, x=SCREEN_WIDTH//2, y=SCREEN_HEIGHT-PADDLE_HEIGHT, width=PADDLE_WIDTH,
+    def __init__(self, x=SCREEN_WIDTH // 2, y=SCREEN_HEIGHT - PADDLE_HEIGHT, width=PADDLE_WIDTH,
                  height=PADDLE_HEIGHT, speed=PADDLE_SPEED, color='white'):
         """
         Initialize a Paddle object.
