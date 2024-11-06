@@ -3,7 +3,7 @@
 # Exit script if any command fails
 set -e
 
-# Print each command before running it (optional for debugging)
+# Print each command before running it
 set -x
 
 # Set PYTHONPATH to the current directory

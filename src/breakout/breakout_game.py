@@ -20,21 +20,23 @@ class BreakoutGame:
         # Set up a clock to control the frame rate
         self.clock = pygame.time.Clock()
 
+        # Create a group to hold all game objects for easy updating and drawing
+        self.all_sprites = pygame.sprite.Group()
+
+        # Create a group for objects that the ball can collide with
+        self.ball_collidables = pygame.sprite.Group()
+
         # Create game objects: bricks, paddle, and ball
         self.bricks = self.create_bricks()
         self.paddle = Paddle()
         self.ball = Ball()
 
-        # Create a group to hold all game objects for easy updating and drawing
-        self.all_sprites = pygame.sprite.Group()
-        self.all_sprites.add(self.bricks)  # Add all brick objects
-        self.all_sprites.add(self.paddle)  # Add the paddle object
-        self.all_sprites.add(self.ball)  # Add the ball object
-
-        # Create a group for objects that the ball can collide with
-        self.collidable_sprites = pygame.sprite.Group()
-        self.collidable_sprites.add(self.paddle)  # Add the paddle to the collidable group
-        self.collidable_sprites.add(self.bricks)  # Add the bricks to the collidable group
+        # Add our objects to groups they belong in
+        self.paddle.add(self.all_sprites, self.ball_collidables)
+        self.ball.add(self.all_sprites)
+        # bricks is a container holding all the brick sprites, so we need to add them one by one
+        for brick in self.bricks:
+            brick.add(self.ball_collidables, self.all_sprites)
 
         # Set the initial game state
         self.running = True
@@ -51,9 +53,8 @@ class BreakoutGame:
 
         # Create a row of bricks with padding between them
         while x <= SCREEN_WIDTH - BRICK_WIDTH:
-            brick = Brick(x=x + BRICK_PADDING,
-                          y=BRICK_HEIGHT)  # Create a brick at the given position
-            bricks.add(brick)  # Add the brick to the group
+            brick = Brick(x=x + BRICK_PADDING, y=BRICK_HEIGHT)  # Create a brick at the given position
+            brick.add(bricks)  # Add the brick to the sprite group
             x += BRICK_WIDTH + BRICK_PADDING  # Move to the position for the next brick
 
         return bricks  # Return the group containing all the bricks
@@ -63,7 +64,7 @@ class BreakoutGame:
         Check for and handle collisions between the ball and other game objects.
         """
         # Check for collisions between the ball and collidable objects
-        collisions = pygame.sprite.spritecollide(self.ball, self.collidable_sprites, False)
+        collisions = pygame.sprite.spritecollide(self.ball, self.ball_collidables, False)
 
         # Handle each collision detected
         for sprite in collisions:
