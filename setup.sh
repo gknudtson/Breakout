@@ -6,6 +6,9 @@ set -e
 # Print each command before running it (optional for debugging)
 set -x
 
+# Set PYTHONPATH to the current directory
+export PYTHONPATH=$(pwd)
+
 # Run setup.py to build the package
 python setup.py sdist bdist_wheel
 

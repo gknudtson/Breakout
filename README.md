@@ -35,6 +35,7 @@ chmod +x setup.sh
 ### What the `setup.sh` Script Does
 - Builds the package using `python setup.py sdist bdist_wheel`.
 - Installs the package locally with `pip install .`.
+- Sets PYTHONPATH to the project root directory
 - Cleans up build directories (`build/`, `dist/`, `*.egg-info`) after the build process is complete.
 
 ## Running the Game
