@@ -3,7 +3,9 @@ from pygame import K_RIGHT, K_LEFT
 # Screen Attributes
 SCREEN_WIDTH = 1024
 SCREEN_HEIGHT = 768
+SCREEN_BACKGROUND_COLOR = "black"
 FRAME_RATE = 60
+
 
 # Brick Attributes
 BRICK_WIDTH = SCREEN_WIDTH // 15
