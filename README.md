@@ -9,6 +9,9 @@ Ensure you have Python 3.10 or later installed. You can check your Python versio
 ```
 python --version
 ```
+If your Python version is < 3.10, you should go to this [link](https://www.python.org/downloads/) and click the download button.
+
+Once the download is complete you will need to run the .exe file and follow the prompts to install the latest version. 
 
 ## Installation and Setup
 To make the installation process easier, a script (`setup.sh`) has been provided to build and install the package.
