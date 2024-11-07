@@ -23,9 +23,3 @@ class Brick(pygame.sprite.Sprite):
 
         # Set the rectangle for positioning and collision detection
         self.rect = self.image.get_rect(topleft=(x, y))
-
-    def destroy(self):
-        """
-        Handle the destruction of the brick (e.g., removing it from groups).
-        """
-        self.kill()  # Removes the sprite from all sprite groups it's a part of
