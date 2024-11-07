@@ -1,9 +1,11 @@
 import pygame
+
 from src.breakout.breakout_config import SCREEN_WIDTH, SCREEN_HEIGHT, BRICK_WIDTH, BRICK_HEIGHT, \
     BRICK_PADDING, SCREEN_BACKGROUND_COLOR, FRAME_RATE
 from src.breakout.game_objects.brick import Brick
 from src.breakout.game_objects.paddle import Paddle
 from src.breakout.game_objects.ball import Ball
+from src.breakout.game_objects.powerup import PowerUp
 
 
 class BreakoutGame:
@@ -70,7 +72,8 @@ class BreakoutGame:
         for sprite in collisions:
             if self.ball.collision(sprite):  # Handle the ball's collision response
                 if isinstance(sprite, Brick):  # If the collided object is a brick
-                    sprite.destroy()  # Remove the brick from the game
+                    sprite.kill()  # Remove the brick from the game
+                    PowerUp(sprite.rect.center[0], sprite.rect.center[1]).add(self.all_sprites)
 
     def run(self):
         """
