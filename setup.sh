@@ -6,8 +6,8 @@ set -e
 # Print each command before running it
 set -x
 
-# Set PYTHONPATH to the current directory
-export PYTHONPATH=$(pwd)
+# Install setup tools
+pip install setuptools .
 
 # Run setup.py to build the package
 python setup.py sdist bdist_wheel
