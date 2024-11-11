@@ -84,6 +84,21 @@ If you'd like to set up a launch configuration in VSCode for easier access, foll
 
 2. Open `launch.json` and paste in the following configuration:
 ```
-
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Breakout Game",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/breakout/breakout_game.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    }
+  ]
+}
 ```
 3. To run the game press `f5`.
