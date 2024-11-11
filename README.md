@@ -30,7 +30,12 @@ cd Breakout
 chmod +x setup.sh
 ```
 
-3. **Run the script**:
+3. **Set the Python path**:
+```
+export PYTHONPATH=$(pwd)
+```
+
+4. **Run the script**:
 ```
 ./setup.sh
 ```
