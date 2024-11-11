@@ -22,10 +22,7 @@ If you need to install Git download the installer from [Git for Windows](https:/
 ## Installation and Setup
 To make the installation process easier, a script (`setup.sh`) has been provided to build and install the package. Run the following terminal commands in a `Git Bash` terminal to setup the project. 
 
-
-- **Choosing the Right Directory**: Before cloning the repository, navigate to a directory where you want the project folder to be created. This directory will serve as the location for your project files. For example, if you want to keep all your projects in a folder called `Projects`, first navigate to that folder in Git Bash or your terminal, then proceed to clone the repository.
-
-- **Using Git Bash Tips**: If you're using Git Bash on Windows, keep in mind:
+- **Git Bash Tips**:
   - Standard keyboard shortcuts like `Ctrl + C` and `Ctrl + V` don't work as expected.
   - To copy text, simply highlight the text in the terminal; it will automatically be copied.
   - To paste copied text, use the middle mouse button (scroll wheel) or right-click and select “Paste”.
@@ -34,7 +31,13 @@ To make the installation process easier, a script (`setup.sh`) has been provided
 ## How to Run `setup.sh`
 Follow these steps to build and install the `Breakout` game package:
 
-1. **Clone the repository (if not already done)**:
+1. **Set up a project folder**:
+```
+mkdir python_projects
+cd python_projects
+```
+
+2. **Clone the repository (if not already done)**:
 ```
 git clone https://github.com/gknudtson/Breakout.git
 cd Breakout
@@ -56,9 +59,9 @@ export PYTHONPATH=$(pwd)
 ```
 
 ### What the `setup.sh` Script Does
+- Installs the setup tools package using pip.
 - Builds the package using `python setup.py sdist bdist_wheel`.
 - Installs the package locally with `pip install .`.
-- Sets PYTHONPATH to the project root directory
 - Cleans up build directories (`build/`, `dist/`, `*.egg-info`) after the build process is complete.
 
 ## Running the Game
