@@ -65,7 +65,25 @@ export PYTHONPATH=$(pwd)
 - Cleans up build directories (`build/`, `dist/`, `*.egg-info`) after the build process is complete.
 
 ## Running the Game
-Once the installation is complete, you can run the game with:
-```
+
+Each time you want to run the game ensure all files are saved (`Ctrl + S`). To start the game, use the following command in the terminal:
+
+```bash
 python src/breakout/breakout_game.py
 ```
+
+### Running in VSCode
+
+If you'd like to set up a launch configuration in VSCode for easier access, follow these steps:
+
+1. Create a `launch.json` file in a `.vscode` directory at the root of your project:
+   ```bash
+   mkdir .vscode
+   touch .vscode/launch.json
+   ```
+
+2. Open `launch.json` and paste in the following configuration:
+```
+
+```
+3. To run the game press `f5`.
